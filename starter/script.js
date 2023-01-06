@@ -88,6 +88,16 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+
+passwordCriteria = {
+  specialCharacters: specialCharacters,
+  numericCharacters: numericCharacters,
+  lowerCasedCharacters: lowerCasedCharacters,
+  upperCasedCharacters: upperCasedCharacters
+};
+
+console.log(passwordCriteria);
+
 // Function to prompt user for password options
 function getPasswordOptions() {
 
