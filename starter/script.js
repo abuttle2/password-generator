@@ -142,6 +142,15 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+  //Calls the parent function to execute all prompt/confirm functions when button is clicked.
+  let passwordOptions = getPasswordOptions();
+
+  console.log(passwordOptions.totalChars);
+  console.log(passwordOptions.hasNums);
+  console.log(passwordOptions.hasSpecialChars);
+  console.log(passwordOptions.isUppercase);
+
+  return; //Return the output so we can use this in the "writePassword" function
 }
 
 // Get references to the #generate element
