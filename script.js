@@ -156,27 +156,28 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
   //Calls the parent function to execute all prompt/confirm functions when button is clicked.
-  let passwordOptions = getPasswordOptions();
+  let options = getPasswordOptions();
   let combinedArray = [];
   let outputStr = '';
+  var isStringValid = options.hasNums || options.hasSpecialChars || options.isLowercase || options.isUppercase;
 
-  if (passwordOptions.hasNums) {
+  if (options.hasNums) {
     combinedArray = combinedArray.concat(numericCharacters);
   }
-  if (passwordOptions.hasSpecialChars) {
+  if (options.hasSpecialChars) {
     combinedArray = combinedArray.concat(specialCharacters);
   }
-  if (passwordOptions.isUppercase) {
+  if (options.isUppercase) {
     combinedArray = combinedArray.concat(upperCasedCharacters);
   }
-  if (passwordOptions.isLowercase) {
+  if (options.isLowercase) {
     combinedArray = combinedArray.concat(lowerCasedCharacters);
   }
-  else {
+  if (!isStringValid) {
     return outputStr = 'Error';
   }
   //Need to loop for the amount of characters returned from user input
-  for (var i = 0; i < passwordOptions.totalChars; i++) {
+  for (var i = 0; i < options.totalChars; i++) {
     // Get a random index of the array we pass in and call for each for-loop iteration
     var filteredResult = combinedArray[getRandom(combinedArray)];
     outputStr += filteredResult;
