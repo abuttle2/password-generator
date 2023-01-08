@@ -95,8 +95,6 @@ var upperCasedCharacters = [
 //   upperCasedCharacters: upperCasedCharacters
 // };
 
-// console.log(passwordCriteria);
-
 // Function to prompt user for password options
 function getPasswordOptions() {
 
@@ -156,93 +154,25 @@ function getRandom(arr) {
   return rand;
 }
 
-// //Function will get a random value based on user input
-// function manageData() {
-//   //Gets the returned user choice
-//   let combinedArray = [];
-
-//   if (passwordOptions.hasNums) {
-//     combinedArray.concat(passwordCriteria.numericCharacters);
-//   }
-
-
-// console.log(combinedArray);
-
-// return // Return the filtered array based on what the user had selected
-
-//Then call getRandom to grab a random value from the single filtered array
-//OR we pass the getRandom function into it each time based on the option?
-// }
-
-
 // Function to generate password with user input
 function generatePassword() {
   //Calls the parent function to execute all prompt/confirm functions when button is clicked.
   let passwordOptions = getPasswordOptions();
-
-
   let combinedArray = [];
-
-  // if (passwordOptions.hasNums) {
-  //   combinedArray.push(passwordCriteria.numericCharacters)
-  //   console.log(combinedArray);
-  // }
-
-  // switch (passwordOptions) {
-  //   case passwordOptions.hasNums:
-  //     combinedArray += [...passwordCriteria.numericCharacters];
-  //     break;
-  //   case passwordOptions.hasSpecialChars:
-  //     combinedArray += [...passwordCriteria.specialCharacters];
-  //     break;
-  //   case passwordOptions.isUppercase:
-  //     combinedArray += [...passwordCriteria.upperCasedCharacters];
-  //     break;
-  //   case passwordOptions.isLowercase:
-  //     combinedArray += [...passwordCriteria.lowerCasedCharacters];
-  //     break;
-  // }
-
-
-  // console.log(passwordOptions.totalChars);
-  // console.log(passwordOptions.hasNums);
-  // console.log(passwordOptions.hasSpecialChars);
-  // console.log(passwordOptions.isUppercase);
+  let outputStr = '';
 
   if (passwordOptions.hasNums) {
-    // var getRandStr = passwordCriteria.numericCharacters[getRandom(passwordCriteria.numericCharacters)];
-    // console.log(getRandStr);
-    // outputStr += getRandStr;
     combinedArray += [...numericCharacters].join('');
-    // sum++;
   }
   if (passwordOptions.hasSpecialChars) {
-    // var getRandSpecialChar = passwordCriteria.specialCharacters[getRandom(passwordCriteria.specialCharacters)];
-    // console.log(getRandSpecialChar);
-    // outputStr += getRandSpecialChar;
     combinedArray += [...specialCharacters].join('');
-    // sum++;
   }
   if (passwordOptions.isUppercase) {
-    // var getRandUpper = passwordCriteria.upperCasedCharacters[getRandom(passwordCriteria.upperCasedCharacters)];
-    // console.log(getRandUpper);
-    // outputStr += getRandUpper;
     combinedArray += [...upperCasedCharacters].join('');
-    console.log(upperCasedCharacters);
-    // sum++;
   }
   if (passwordOptions.isLowercase) {
     combinedArray += [...lowerCasedCharacters].join('');
   }
-
-  // combinedArray = combinedArray.flat(combinedArray)
-
-  // console.log(combinedArray);
-  // console.log(Array.prototype.join.call(combinedArray, ''));
-
-  console.log(combinedArray);
-
-  var outputStr = '';
 
   //Need to loop for the amount of characters returned from user input
   for (var i = 0; i < passwordOptions.totalChars; i++) {
@@ -253,10 +183,7 @@ function generatePassword() {
 
   console.log(outputStr);
 
-  // console.log(outputStr);
-  // console.log("rand calls: " + sum)
-
-  // return combinedArray //Return the output so we can use this in the "writePassword" function
+  return outputStr;
 }
 
 // Get references to the #generate element
