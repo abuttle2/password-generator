@@ -88,29 +88,22 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// passwordCriteria = {
-//   specialCharacters: specialCharacters,
-//   numericCharacters: numericCharacters,
-//   lowerCasedCharacters: lowerCasedCharacters,
-//   upperCasedCharacters: upperCasedCharacters
-// };
-
-// console.log(passwordCriteria);
-
 // Function to prompt user for password options
 function getPasswordOptions() {
 
+  const minPwLength = 10;
+  const maxPwLength = 64;
+  var isValidInput = false;
+
   function getCharLength() {
     let totalChars = prompt("How many characters for the password length?");
-    const minPwLength = 10;
-    const maxPwLength = 64;
 
     if (totalChars >= minPwLength && totalChars <= maxPwLength) {
       return totalChars;
     }
     else {
       //Alert user and call the function to enter input again
-      alert("Please enter a character within the limit 10-64 (inclusive)!")
+      alert("Please enter a character within the limit " + minPwLength + "-" + maxPwLength + " (inclusive)!")
       return getCharLength();
     }
   }
@@ -140,6 +133,10 @@ function getPasswordOptions() {
   let hasSpecialChars = specialCharConf();
   let isUppercase = uppercaseConf();
   let isLowercase = lowercaseConf();
+
+  if (!hasNums && !hasSpecialChars && !isUppercase && !isLowercase) {
+    alert("Please enter at least one character type!")
+  }
 
   return {
     totalChars,
@@ -175,7 +172,9 @@ function generatePassword() {
   if (passwordOptions.isLowercase) {
     combinedArray = combinedArray.concat(lowerCasedCharacters);
   }
-
+  else {
+    return outputStr = 'Error';
+  }
   //Need to loop for the amount of characters returned from user input
   for (var i = 0; i < passwordOptions.totalChars; i++) {
     // Get a random index of the array we pass in and call for each for-loop iteration
@@ -186,28 +185,16 @@ function generatePassword() {
   return outputStr;
 }
 
+
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
-
 // Write password to the #password input
 function writePassword() {
   //Gets the returned output from the generated password
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
-
   passwordText.value = password;
 }
 
-
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
-
-
-//1. Prompt the user when the button is clicked
-//  i. Length must be between 10 and 64 (inclusive)
-//2. Confirm for if they would like numbers
-//3. Confirm for if they would like uppercase letters
-//4. Confirm for if they would like special characters
-//5. Validate the input
-//6. Display the final generated password
