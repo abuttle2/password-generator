@@ -242,14 +242,16 @@ function generatePassword() {
 
   console.log(combinedArray);
 
+  var outputStr = '';
+
   //Need to loop for the amount of characters returned from user input
   for (var i = 0; i < passwordOptions.totalChars; i++) {
     // Get a random index of the array we pass in and call for each for-loop iteration
     var filteredResult = combinedArray[getRandom(combinedArray)];
-    console.log(filteredResult);
+    outputStr += filteredResult;
   }
 
-  // console.log("as", filteredResult);
+  console.log(outputStr);
 
   // console.log(outputStr);
   // console.log("rand calls: " + sum)
