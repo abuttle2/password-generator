@@ -1,7 +1,5 @@
 # password-generator
 
-# console-finances
-
 ## Description
 
 A password generator written in JavaScript with dynamically updated HTML and CSS. Passwords must be between 10-64 characters and include the following character options:
