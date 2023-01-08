@@ -95,6 +95,8 @@ var upperCasedCharacters = [
 //   upperCasedCharacters: upperCasedCharacters
 // };
 
+// console.log(passwordCriteria);
+
 // Function to prompt user for password options
 function getPasswordOptions() {
 
@@ -162,16 +164,16 @@ function generatePassword() {
   let outputStr = '';
 
   if (passwordOptions.hasNums) {
-    combinedArray += [...numericCharacters].join('');
+    combinedArray = combinedArray.concat(numericCharacters);
   }
   if (passwordOptions.hasSpecialChars) {
-    combinedArray += [...specialCharacters].join('');
+    combinedArray = combinedArray.concat(specialCharacters);
   }
   if (passwordOptions.isUppercase) {
-    combinedArray += [...upperCasedCharacters].join('');
+    combinedArray = combinedArray.concat(upperCasedCharacters);
   }
   if (passwordOptions.isLowercase) {
-    combinedArray += [...lowerCasedCharacters].join('');
+    combinedArray = combinedArray.concat(lowerCasedCharacters);
   }
 
   //Need to loop for the amount of characters returned from user input
@@ -180,9 +182,7 @@ function generatePassword() {
     var filteredResult = combinedArray[getRandom(combinedArray)];
     outputStr += filteredResult;
   }
-
   console.log(outputStr);
-
   return outputStr;
 }
 
