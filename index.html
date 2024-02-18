@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   </head>
   <body>
     <div class="wrapper">
@@ -23,6 +24,16 @@
             placeholder="Your Secure Password"
             aria-label="Generated Password"
           ></textarea>
+          <div class="option-wrapper">
+            <input type="checkbox" id="numbers-check">
+            <label for="numbers-check">Numbers</label>
+            <input type="checkbox" id="symbols-check">
+            <label for="symbols-check">Symbols</label>
+            <input type="checkbox" id="uppercase-check">
+            <label for="uppercase-check">Uppercase</label>
+            <input type="checkbox" id="lowercase-check">
+            <label for="lowercase-check">Lowercase</label>
+          </div>
         </div>
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>

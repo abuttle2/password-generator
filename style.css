@@ -39,7 +39,7 @@ header {
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
-  padding: 30px 40px;
+  padding: 30px 30px;
 }
 
 .card-header::after {
@@ -88,6 +88,58 @@ header {
   cursor: pointer;
 }
 
+.option-wrapper{
+
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 5px;
+  border-width: 1px;
+  color: hsl(206, 17%, 28%);
+  font-size: 18px;
+  margin: 0 auto;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+input[type="checkbox"]
+{
+  appearance: none;
+  -webkit-appearance: none;
+  height: 30px;
+  width: 30px;
+  background-color: #d5d5d5;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+label{
+  color: #4c4c4c;
+  cursor: pointer;
+  padding: 10px;
+}
+input[type="checkbox"]:after{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f00c";
+  font-size: 20px;
+  color: white;
+  display: none;
+}
+input[type="checkbox"]:hover{
+  background-color: #A5A5A5;
+}
+input[type="checkbox"]:checked{
+  background-color: #5bcd3e;
+}
+input[type="checkbox"]:checked::after{
+  display: block;
+}
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
@@ -107,15 +159,18 @@ button[disabled] {
   padding-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  padding-bottom: 85px;
-  font-size: 1.2rem;
+  padding-bottom: 15px;
+  font-size: 2rem;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 20px;
   border: 2px dashed #c0c7cf;
   border-radius: 6px;
   resize: none;
   overflow: hidden;
+}
+
+placeholder{
+  color: #5bcd3e;
 }
 
 @media (max-width: 690px) {
